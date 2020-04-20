@@ -1,0 +1,4 @@
+{
+MONGO_URI="mongodb+srv://raptoradmin:sHvLyOMcYAWCT7nM@raptordev-6xk9x.azure.mongodb.net/test?retryWrites=true&w=majority"
+MONGO_DB="raptordev"
+}
