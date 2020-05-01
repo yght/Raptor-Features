@@ -4,25 +4,25 @@ class UsageRepository {
     constructor({db}) {
         this.usage =  db.collection('usage');
     }
-   async getUsageByDeviceId({accountId, deviceId, skip = 0, limit = 25,from, to, sort = 'id desc'}) {
-        let query = {
-            accountId: new ObjectID(accountId),
-            deviceId: new ObjectID(deviceId),
-            $and: [
-                { logged: { $gte: new Date(from) }},
-                { logged: {$lte: new Date(to) }}
-                ]
-        };
-        const options = {limit, skip, sort: dbUtils.processSortValue(sort)};
-        const count = await this.usage.countDocuments(query);
-        const usage = await this.usage.find(query, options).toArray();
-        return {count: count, result: usage};
-    }
+//    async getUsageByDeviceId({accountId, deviceId, skip = 0, limit = 25,from, to, sort = 'id desc'}) {
+//         let query = {
+//             accountId: new ObjectID(accountId),
+//             deviceId: new ObjectID(deviceId),
+//             $and: [
+//                 { logged: { $gte: new Date(from) }},
+//                 { logged: {$lte: new Date(to) }}
+//                 ]
+//         };
+//         const options = {limit, skip, sort: dbUtils.processSortValue(sort)};
+//         const count = await this.usage.countDocuments(query);
+//         const usage = await this.usage.find(query, options).toArray();
+//         return {count: count, result: usage};
+//     }
 
-    async getUsageByIccid({accountId, iccid, skip = 0, limit = 100, sort = 'id desc', from, to}) {
+    async getUsageByDeviceId({accountId, deviceId, skip = 0, limit = 100, sort = 'id desc', from, to}) {
         const match = {
            accountId: new ObjectID(accountId),
-           iccid,
+           deviceId,
            logged: {'$gte':new Date(from), '$lte':new Date(to)}
 
          };

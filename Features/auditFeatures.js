@@ -3,8 +3,8 @@ class AuditFeatures {
         this.auditRepo = repositories.AuditRepository;
     }
 
-   async getAuditsForICCID(iccid) {
-        const result = await this.auditRepo.getAuditForIccid({iccid});
+   async getAuditsForDevice({accountId,deviceId, sort, limit, skip, from, to}) {
+        const result = await this.auditRepo.getAuditForDevice({accountId, deviceId, from, to, sort, skip, limit});
         return result;
     }
 }

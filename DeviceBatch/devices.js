@@ -96,4 +96,4 @@ class Devices {
         }
 }
 
-module.exports = Devices;
+ module.exports = Devices;

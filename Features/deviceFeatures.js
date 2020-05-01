@@ -10,9 +10,9 @@ constructor({repositories}) {
     async test (accountId) {
         return await this.deviceRepo.updateOldNewCustom({accountId});
     }
-    async getDevice(iccid) {
-        const device = await this.deviceRepo.getDevice(iccid);
-        console.log(device)
+    async getDevice({accountId, iccid}) {
+        const device = await this.deviceRepo.getDevice({accountId, iccid});
+        return device;
     }
     async getDevicesForAccount({accountId}) {
         const result = await this.deviceRepo.getDevicesForAccount({accountId,limit: 10, sort:'mtdData desc'});

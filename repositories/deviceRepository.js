@@ -19,8 +19,8 @@ class DeviceRepository {
         delete obj._id;
     }
 
-    async getDevice (iccid) {
-        const query = {iccid: iccid};
+    async getDevice ({accountId, iccid}) {
+        const query = {accountId: new ObjectID(accountId), iccid};
         const device = await this.device.findOne(query);
         this.replaceId(device);
         return device;
