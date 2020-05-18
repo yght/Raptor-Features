@@ -14,8 +14,8 @@ async function setup() {
        // const DeviceApi = require('./DeviceBatch/devices')()
         const accountId = '5d6bf1d0c2754f0018ebb4e7'//'5d6bf1d0c2754f0018ebb4e7' '5d6019afc26e3c0011d372d6'; P:L1:5d716161bd6074001835baa8
         const customerAccountId = '5d767c02a256a90018437535' //'5d62b861c6f0c700118a56d1' 
-        const iccid = '89011703278375618116'
-        const {id: deviceId} = await Features.DeviceFeatures.getDevice({accountId, iccid});
+        const iccid = '89148000005543219463'
+       // const {id: deviceId} = await Features.DeviceFeatures.getDevice({accountId, iccid});
        
         // invite
 
@@ -32,12 +32,13 @@ async function setup() {
 
         // Sync
           
-          //  await Features.SyncFeatures.getSyncForIccid({accountId, iccid});
-         //  await Features.SyncFeatures.getSyncForType({accountId, type:'updated'});
+        //   await Features.SyncFeatures.getSyncForIccid({accountId, iccid});
+          const syncType = await Features.SyncFeatures.getSyncForType({accountId, type:'error', platform:'jasper'});
+           console.log(syncType)
         
         //Audit
-        const result  = await Features.AuditFeatures.getAuditsForDevice({accountId, deviceId, from:'2020-04-17', to:'2020-05-01'}) 
-        console.log(result)
+        // const result  = await Features.AuditFeatures.getAuditsForDevice({accountId, deviceId, from:'2020-04-17', to:'2020-05-01'}) 
+        // console.log(result)
             
 
          // Usage

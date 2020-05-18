@@ -8,10 +8,9 @@ class SyncFeatures {
         console.log(result)
     }
 
-    async getSyncForType({accountId, type}) {
-        const result = await this.syncRepo.getSyncForType({accountId, type});
-        const devices = result.result.map(m => {return {iccids: m.iccids, error: m.message, type: m.type}})
-        console.log(devices);
+    async getSyncForType({accountId, type, platform}) {
+        const result = await this.syncRepo.getSyncForType({accountId, type, platform});
+       return result;
     }
 }
 

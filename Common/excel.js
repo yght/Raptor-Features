@@ -19,15 +19,23 @@ var Excel = require('exceljs');
         }
         return iccids;  
     };
-    async  writeToWorksheet( fileName, wsName, items) {
-        var removedWS =  this.wb.getWorksheet(wsName);
-        const toMatrix = (common) => 
-        common.reduce((rows, key, index) => (index % 1 == 0 ? rows.push([key]) 
-          : rows[rows.length-1].push(key)) && rows, []);
-    
-         const rows =  toMatrix(items);
-         removedWS.addRows(rows);
-        await this.wb.xlsx.writeFile(fileName);
+    async  writeToWorksheet(fileName, wsName, items) {
+        
+        try 
+        {
+            const sheet = this.wb.addWorksheet(wsName);
+            const toMatrix = (common) => 
+            common.reduce((rows, key, index) => (index % 1 == 0 ? rows.push([key])  : rows[rows.length-1].push(key)) && rows, []);
+            const rows =  toMatrix(items);
+            console.log(rows)
+            sheet.addRows(rows)
+             await this.wb.xlsx.writeFile(fileName)
+             return 'done';
+        }
+         catch (err) {
+             console.log(err)
+            return false;
+        }
     }
     async removeFromWorksheet (fileName, wsName, numberOfRows) {
         var removedWS =  this.wb.getWorksheet(wsName);

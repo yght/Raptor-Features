@@ -1,0 +1,28 @@
+{
+  "name": "Raptor-Features",
+  "version": "1.0.0",
+  "description": "Raptor Features",
+  "main": "config.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "exceljs": "^3.9.0",
+    "mongodb": "^3.5.7",
+    "request": "^2.88.2",
+    "underscore": "^1.10.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon web.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yght/Raptor-Features.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yght/Raptor-Features/issues"
+  },
+  "homepage": "https://github.com/yght/Raptor-Features#readme"
+}

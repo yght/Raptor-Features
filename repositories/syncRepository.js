@@ -14,8 +14,8 @@ class SyncRepository {
         return {count, v}
     }
 
-    async getSyncForType({accountId, type, skip = 0 , limit = 100, sort ='id desc'}) {
-        const query = {accountId: new ObjectID(accountId), type}
+    async getSyncForType({accountId, type, skip = 0 , limit = 25, sort ='logged desc', platform}) {
+        const query = {accountId: new ObjectID(accountId), type, platform}
         const options = {skip, limit, sort: dbUtils.processSortValue(sort)}
         const count = await this.syncRepo.countDocuments(query);
         const result = await this.syncRepo.find(query, options).toArray();
